@@ -1,0 +1,54 @@
+show databases;
+create database empdetails1;
+use empdetails1;
+create table details2(
+name varchar(10),
+salary int,
+id int,
+address varchar(20),
+dept varchar(10)
+);
+insert into details2 values('abc','10000','1020','california','accounting');
+insert into details2 values('efg','11000','1120','california','hr');
+insert into details2 values('hij','10500','1320','california','dev');
+insert into details2 values('lmno','10500','1320','california','dev');
+select * from details2;
+alter table details2 rename column dept to division;
+update details2 set id=1200 , division='finance' where name='abc';
+update details2 set id=1321 where name='lmno';
+update details2 set salary=salary+1;
+update details2 set division='legal' where id=1320;
+alter table details2 add column country varchar(50) default 'US';
+update details2 set country='britain' where name='hij';
+update details2 set salary=11501 where name='lmno';
+update details2 set address='london' where country='britain';
+
+
+__________________________________________________________________________________________________________________________________________________________
+
+show databases;
+create database empdetails1;
+use empdetails1;
+start transaction;
+create table details2(
+name varchar(10),
+salary int,
+id int,
+address varchar(20),
+dept varchar(10)
+);
+insert into details2 values('abc','10000','1020','california','accounting');
+insert into details2 values('efg','11000','1120','california','hr');
+insert into details2 values('hij','10500','1320','california','dev');
+insert into details2 values('lmno','10500','1320','california','dev');
+select * from details2;
+alter table details2 drop column id;
+delete from details2 where name='efg';
+savepoint a;
+insert into details2 values('xyz','13500','1620','california','sales');
+update details2 set country= 'US' where country='sales';
+update details2 set address='washington' where address='1620';
+update details2 set division='hr' where division='california';
+rollback to a;
+select* from details2;
+truncate table details2;
