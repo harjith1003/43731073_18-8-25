@@ -1,0 +1,18 @@
+show databases;
+create database empdetails;
+use empdetails;
+create table details(
+name varchar(10),
+salary int,
+id int,
+address varchar(20),
+dept varchar(10)
+);
+insert into details values('abc','10000','1020','california','accounting');
+insert into details values('efg','11000','1120','california','hr');
+insert into details values('hij','10500','1320','california','dev');
+update details set name='xyz' where name='abc';
+select * from details;
+alter table details drop column address; 
+delete from details where name='efg';
+alter table details add address varchar(50);
