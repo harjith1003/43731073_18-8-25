@@ -1,0 +1,104 @@
+show databases;
+use empdetails;
+create table company(
+id int not null,
+name varchar(10) not null,
+model varchar(20) not null,
+hp int
+);
+select * from company;
+insert into company values('1','koenigsegg','sadair spear','1625');
+delete from company where id=1;
+insert into company values('2','bugatti','brouillard','1600');
+insert into company values('3','pagani','utopia','850');
+insert into company values('4','mercedes','e55 amg','800');
+alter table company add unique(id);
+insert into company values('1','koenigsegg','sadair spear','1625');
+alter table company add unique(hp);
+insert into company values('5','koenigsegg','sadair spear','1625');
+alter table company add price int;
+alter table company drop price;
+alter table company add price varchar(20) default '3 million';
+truncate table company;
+drop table company;
+alter table company drop index id;
+insert into company values('5','koenigsegg','jesko','1400','3 million');
+delete from company where hp=1400;
+alter table company add unique(id);
+insert into company values('5','koenigsegg','jesko','1500','3 million');
+
+
+
+__________________________________________________________________________________________________________________________________________________________
+
+
+
+with primary key
+
+show databases;
+use empdetails;
+create table company(
+id int primary key,
+name varchar(10) not null,
+model varchar(20) not null,
+hp int,
+check (id>0)
+);
+select * from company;
+insert into company values('1','koenigsegg','sadair spear','1625');
+delete from company where id=1;
+insert into company values('2','bugatti','brouillard','1600');
+insert into company values('3','pagani','utopia','850');
+insert into company values('4','mercedes','e55 amg','800');
+alter table company add unique(id);
+insert into company values('1','koenigsegg','sadair spear','1625');
+alter table company add unique(hp);
+insert into company values('5','koenigsegg','sadair spear','1625');
+insert into company values('0','koenigsegg','gemera','2300');
+truncate table company;
+drop table company;
+
+
+__________________________________________________________________________________________________________________________________________________________
+
+with foreign key,
+
+show databases;
+use empdetails;
+create table company(
+id int primary key,
+name varchar(10) not null,
+check (id>0)
+);
+select * from company;
+insert into company values('1001','koenigsegg');
+insert into company values('1002','bugatti');
+insert into company values('1003','pagani');
+insert into company values('1004','mercedes');
+drop table company;
+
+create table car(
+id int primary key,
+model varchar(15) not null,
+mid int,
+foreign key(mid) references company(id),
+check (id>0)
+);
+select * from car;
+insert into car values('1','jesko','1001');
+insert into car values('2','brouillard','1002');
+insert into car values('3','utopia','1003');
+insert into car values('4','amg1','1004');
+insert into car values('5','gemera','1001');
+insert into car values('6','agera','1001');
+insert into car values('7','chiron','1002');
+insert into car values('8','mistral','1002');
+insert into car values('9','huayra','1003');
+insert into car values('10','zonda','1003');
+insert into car values('11','e55','1004');
+insert into car values('12','e63','1004');
+insert into car values('13','e63','1005');
+delete from car where id=1004;
+truncate table car;
+drop table car;
+drop table company;
