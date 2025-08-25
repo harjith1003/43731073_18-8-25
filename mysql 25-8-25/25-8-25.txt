@@ -1,0 +1,66 @@
+show databases;
+use empdetails;
+create table company(
+id int primary key,
+name varchar(10) not null,
+check (id>0)
+);
+select * from company;
+select id as carid from company;
+select * from company where name like 'k_e%'; ---> alias and finding within table
+insert into company values('1001','koenigsegg');
+insert into company values('1002','bugatti');
+insert into company values('1003','pagani');
+insert into company values('1004','mercedes');
+drop table company;
+
+create table car(
+id int primary key,
+model varchar(15) not null,
+mid int,
+check (id>0),
+foreign key(mid) references company(id)
+on delete cascade
+on update cascade
+);
+select * from car;
+insert into car values('1','jesko','1001');
+insert into car values('2','brouillard','1002');
+insert into car values('3','utopia','1003');
+insert into car values('4','amg1','1004');
+insert into car values('5','gemera','1001');
+insert into car values('6','agera','1001');
+insert into car values('7','chiron','1002');
+insert into car values('8','mistral','1002');
+insert into car values('9','huayra','1003');
+insert into car values('10','zonda','1003');
+insert into car values('11','e55','1004');
+insert into car values('12','e63','1004');
+insert into car values('13','e63','1005');
+delete from car where id=1004;
+create view koenigsegg as select * from car where mid=1001; ---> creating sub table within the bigger table
+select * from koenigsegg;
+create view bugatti as select * from car where mid=1002; ---> creating sub table within the bigger table
+select * from bugatti;
+create view pagani as select * from car where mid=1003; ---> creating sub table within the bigger table
+select * from pagani;
+create view benz as select * from car where mid=1004; ---> creating sub table within the bigger table
+select * from benz;
+truncate table car;
+drop table car;
+drop table company;
+show databases;
+drop database empdetails1;
+
+create table founder(
+id int primary key,
+name varchar(50),
+country varchar(50),
+fid int,
+foreign key(fid) references car(id)
+);
+drop table founder;
+insert into founder values('101','christian von koenigsegg','sweden','1001');
+insert into founder values('102','etorre bugatti','france','1002');
+insert into founder values('103','horacio pagani','italy','1003');
+insert into founder values('104','daimler benz','germany','1004');
