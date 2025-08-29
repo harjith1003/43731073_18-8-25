@@ -1,0 +1,82 @@
+show databases;
+CREATE DATABASE ORG123;
+SHOW DATABASES;
+USE ORG123;
+
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Monika', 'Arora', 100000, '14-02-20 09.00.00', 'HR'),
+		(002, 'Niharika', 'Verma', 80000, '14-06-11 09.00.00', 'Admin'),
+		(003, 'Vishal', 'Singhal', 300000, '14-02-20 09.00.00', 'HR'),
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+select * from worker;
+select * from worker order by salary asc;
+select * from worker where department='hr' order by salary asc;
+select * from worker where last_name like 's%' order by salary asc;
+select department, sum(salary) from worker group by department order by sum(salary) asc;
+select first_name, department, salary from worker order by salary asc;
+select department, max(salary) from worker group by department order by max(salary) asc;
+select count(department) as count, department from worker where department not in ('hr','admin') group by department;
+select * from worker where worker_id>5;
+select department,sum(salary) from worker group by department having sum(salary)<700000;
+select first_name, department, salary from worker having salary>100000;
+select department, avg(salary) from worker group by department having avg(salary)>100000;
+select department, max(salary) from worker group by department having max(salary)=500000;
+select department,count(department), sum(salary) from worker group by department having count(department)>1 and sum(salary)>1000000;
+select department, avg(salary) from worker group by department having avg(salary) between '50000' and '200000';
+
+
+
+create table company2(
+id int,
+name varchar(50)
+);
+insert into company2 values
+('1','koenigsegg'),
+('2','bugatti'),
+('3','pagani'),
+('4','mercedes'),
+('6','porsche'),
+('7','aston martin');
+select * from company2;
+
+create table models(
+id int,
+name varchar(50)
+);
+
+insert into models values
+('1', 'jesko'),
+('1', 'gemera'),
+('1', 'cc850'),
+('2', 'brouillard'),
+('2', 'chiron'),
+('3', 'utopia'),
+('3', 'huayra'),
+('4', 'e55'),
+('4', 'e63'),
+('5', 'enzo'),
+('5', 'f50');
+select * from models;
+truncate table models;
+drop table models;
+drop table company2;
+
+select * from company2 inner join models where (company2.id=models.id);  #INNER JOIN
+select * from company2 right join models on (company2.id=models.id);  # RIGHT JOIN
+select * from company2 cross join models;  # CROSS JOIN
+select * from company2 left join models on (company2.id=models.id);
+select * from company2 natural join models where (company2.id=models.id);  # LEFT JOIN
