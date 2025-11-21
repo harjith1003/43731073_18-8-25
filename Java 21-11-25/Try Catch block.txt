@@ -1,0 +1,24 @@
+package basic;
+
+import java.util.Scanner;
+
+public class trycatch {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		try{
+			System.out.println("enter value");
+			int x=sc.nextInt();
+			System.out.println("valid");
+		}
+		catch (Exception e){
+			System.out.println("not so valid");
+			
+		}
+		finally{
+			System.out.println("sanks for using");
+		}
+	}
+
+}

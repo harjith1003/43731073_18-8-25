@@ -1,0 +1,42 @@
+package basic;
+
+public class encapsulation {
+
+	public static void main(String[] args) {
+		venmo v= new venmo();
+		v.checkbalance();
+		venmo e= new venmo();
+		e.changeemail();
+		venmo n= new venmo();
+		n.getname();
+	}
+
+}
+class SBI{
+	private String name="xyz";
+	public String getMail_id() {
+		return mail_id;
+	}
+	public void setMail_id(String mail_id) {
+		this.mail_id = mail_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getAcc_balance() {
+		return acc_balance;
+	}
+	private int acc_balance=123;
+	private String mail_id="xyz@mail";
+}
+class venmo extends SBI{
+	void checkbalance(){
+		System.out.println(getAcc_balance());
+	}
+	void changeemail(){
+		System.out.println(getMail_id());
+	}
+	void getname(){
+		System.out.println(getName());
+	}
+}

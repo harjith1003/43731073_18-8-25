@@ -1,0 +1,20 @@
+package nov21;
+public class MethodOverload {
+	    public static void main(String[] args) {
+        calculator c = new calculator();
+        c.add(10, 20.5);   
+        c.add(15.5, 10);   
+        c.add(5.5f, 2);    
+    }
+}
+class calculator {
+    void add(int a, double b) {
+        System.out.println("First one = " + (a + b));
+    }
+    void add(double a, int b) {
+        System.out.println("Second one = " + (a + b));
+    }
+    void add(float a, int b) {
+        System.out.println("Third one = " + (a + b));
+    }
+}
