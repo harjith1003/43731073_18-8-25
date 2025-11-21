@@ -1,0 +1,31 @@
+package basic;
+public class abstraction{
+	public static void main(String[] args){
+		hypercar g2 = new Bugatti();
+		g2.koenigsegg();
+		g2.bugatti();
+		
+	}
+}
+abstract class hypercar {
+	abstract void koenigsegg(); 
+	abstract void bugatti ();
+    
+}
+class Koenigsegg extends hypercar{
+    void koenigsegg() {
+        System.out.println("285 mph");
+    }
+	@Override
+	void bugatti() {
+	}
+}
+class Bugatti extends Koenigsegg {
+	void bugatti() {
+		System.out.println("280 mph");
+	}
+}
+
+
+
+
