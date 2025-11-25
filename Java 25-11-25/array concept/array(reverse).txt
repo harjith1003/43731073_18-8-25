@@ -1,0 +1,13 @@
+import java.util.Arrays;
+import org.apache.commons.lang3.ArrayUtils;
+
+public class ReverseArray {
+    public static void main(String[] args) {
+
+        int[] intArray = { 1, 2, 3, 4, 5 };
+
+        ArrayUtils.reverse(intArray);
+
+        System.out.println(Arrays.toString(intArray));  // [5, 4, 3, 2, 1]
+    }
+}

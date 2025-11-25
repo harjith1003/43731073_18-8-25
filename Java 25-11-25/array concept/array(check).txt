@@ -1,0 +1,15 @@
+package basic;
+
+import java.util.Arrays;
+
+public class arraycheck {
+    public static void main(String[] args) {
+
+        String[] stringArray = { "abc", "bcd", "cba", "dcb", "efg" };
+
+        boolean b = Arrays.asList(stringArray).contains("abc");
+
+        System.out.println(b);   
+    }
+}
+

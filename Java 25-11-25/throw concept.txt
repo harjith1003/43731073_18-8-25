@@ -1,0 +1,23 @@
+package basic;
+import java.util.Scanner;
+public class throwcatch {
+    static void validate(int age) {
+        if(age < 18)
+            throw new ArithmeticException("Not eligible");
+        else
+            System.out.println("Valid");
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter age: ");
+            int age = sc.nextInt();
+            validate(age);  
+            System.out.println("Validation completed successfully");
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+        System.out.println("Rest of the code executes...");
+        sc.close();
+    }
+}

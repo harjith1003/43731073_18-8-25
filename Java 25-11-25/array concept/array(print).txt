@@ -1,0 +1,12 @@
+package basic;
+import java.util.Arrays;
+public class array1 {
+
+	public static void main(String[] args) {
+		int[] array={1,2,3,4,5};
+		String intarrays= Arrays.toString(array);
+		System.out.println(intarrays);
+
+	}
+
+}

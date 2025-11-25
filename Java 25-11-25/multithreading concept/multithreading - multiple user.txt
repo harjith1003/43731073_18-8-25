@@ -1,0 +1,66 @@
+package basic;
+
+import java.util.Scanner;
+
+public class multithreading2 {
+ public static void main(String args[]) {
+  // object creation for thread classes
+  Minute num = new Minute();
+  Seconds alp = new Seconds();
+
+  // start the thread
+  num.start();
+  alp.start();
+
+  try {
+   num.join();   // wait for Minute thread to finish
+   alp.join();   // wait for Seconds thread to finish
+  } catch (Exception e) {
+   System.out.println(e);
+  }
+ }
+}
+
+class Minute extends Thread {
+ int a = 0;
+
+ public void run() {
+
+  try {
+   for (int i = 0; i <= 59; i++) {
+    try {
+     System.out.println("Minutes : " + a);
+     a++;
+     Thread.sleep(1000);   // changed from 60000 to 1000
+    } catch (Exception e) {
+     System.out.println(e);
+    }
+   }
+  } catch (Exception e) {
+   System.out.println(e);
+  }
+
+ }
+}
+
+class Seconds extends Thread {
+ int a = 0;
+
+ public void run() {
+  try {
+   for (int i = 0; i <= 59; i++) {
+
+    try {
+     System.out.println("Seconds :" + a);
+     a++;
+     Thread.sleep(1000);   // stays the same
+    } catch (Exception e) {
+     System.out.println("Issues in Minutes Thread class");
+    }
+   }
+  } catch (Exception e) {
+   System.out.println(e);
+  }
+
+ }
+}
