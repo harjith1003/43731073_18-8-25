@@ -1,0 +1,33 @@
+package basic;
+
+import java.util.*;
+
+public class linkedhashset {
+
+	public static void main(String[] args) {
+		LinkedHashSet<String> l= new LinkedHashSet<String>();
+		l.add("car1");
+		l.add("car2");
+		l.add("car3");
+		l.add("car4");
+		l.add("car1");
+		System.out.println(l); //output maintains input order
+		
+		HashSet<Integer> h= new HashSet<Integer>();
+		h.add(1);
+		h.add(2);
+		h.add(3);
+		h.add(4);
+		h.add(1);
+		System.out.println(h); //output will not maintain an order
+		
+		TreeSet<Integer> t=new TreeSet<Integer>();
+		t.add(5);
+		t.add(1);
+		t.add(1);
+		t.add(4);
+		t.add(7);
+		System.out.println(t); //arrange in ascending order
+	}
+
+}

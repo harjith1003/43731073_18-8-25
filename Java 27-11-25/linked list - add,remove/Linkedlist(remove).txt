@@ -1,0 +1,52 @@
+package basic;
+import java.util.*;  
+public class linkedlistremove {  
+  
+        public static void main(String [] args)  
+        {  
+           LinkedList<String> l=new LinkedList<String>();  
+           l.add("car1");  
+           l.add("car2");  
+           l.add("car3");  
+           l.add("car4");  
+           l.add("car5");  
+           l.add("car6");  
+           l.add("car7");  
+           l.add("car8");  
+           l.add("car9(1)");
+           l.add("car9(1)");
+           l.add("car9(2)");  
+           System.out.println("Initial list of elements: "+l);  
+          
+              l.remove("car4");  
+              System.out.println("After removing car4: "+l);   
+           
+              l.remove(0);  
+              System.out.println("after removing first element (using index value): "+l);   
+              LinkedList<String> l2=new LinkedList<String>();  
+              l2.add("truck1");  
+              l2.add("truck2");  
+          
+              l.addAll(l2);  
+              System.out.println("adding both linked list : "+l);   
+          
+              l.removeAll(l2);  
+              System.out.println("removing elements of second linkedlist: "+l);   
+         
+              l.removeFirst();  
+              System.out.println("after removing first element: "+l);  
+          
+              l.removeLast();  
+              System.out.println("After removing last element: "+l);  
+           
+              l.removeFirstOccurrence("car9(1)");  
+              System.out.println("removing the first of duplicates: "+l);  
+          
+              l.removeLastOccurrence("car9(1)");  
+              System.out.println("removing last of duplicates: "+l);  
+  
+              
+              l.clear();  
+              System.out.println("clearing all: "+l);   
+       }  
+    }      

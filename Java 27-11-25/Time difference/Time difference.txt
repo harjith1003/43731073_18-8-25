@@ -1,0 +1,22 @@
+package basic;
+import java.util.*;
+import java.io.IOException;
+public class timediff{
+	public static void main(String[] args){
+		long St= System.currentTimeMillis();
+	    ArrayList<String> l=new ArrayList<String>();
+	
+	for (int i=0;i<10000;i++){
+		l.add("car1");
+	}
+	System.out.println("time taken by arrayList:" +(System.currentTimeMillis()-St) +"ms");
+	
+	LinkedList<String> ll=new LinkedList<String>();
+	
+	for(int i=0;i<10000;i++){
+		ll.add("car2");
+	}
+	System.out.println("time taked by LinkedList:" +(System.currentTimeMillis()-St) +"ms");
+
+}
+}

@@ -1,0 +1,34 @@
+package basic;
+import java.util.*;  
+public class linkedlistadd{  
+ public static void main(String args[]){  
+ LinkedList<String> ll=new LinkedList<String>();  
+           System.out.println("Initial elements: "+ll);  
+           ll.add("car1");  
+           ll.add("car2");  
+           ll.add("car3");  
+           System.out.println("After adding the fist time: "+ll);  
+            
+           ll.add(1, "car4");  
+           System.out.println("after adding new name: "+ll);  
+           LinkedList<String> ll2=new LinkedList<String>();  
+           ll2.add("car5");  
+           ll2.add("car6");  
+             
+           ll.addAll(ll2);  
+           System.out.println("joining both linkedlists: "+ll);  
+           LinkedList<String> ll3=new LinkedList<String>();  
+           ll3.add("truck");  
+           ll3.add("truck2");  
+           
+           ll.addAll(1, ll3);  
+           System.out.println("joining truck in middle: "+ll);  
+           
+           ll.addFirst("Lokesh");  
+           System.out.println("add name in first place: "+ll);  
+           
+           ll.addLast("Harsh");  
+           System.out.println("add name in last space: "+ll);  
+             
+ }  
+}  

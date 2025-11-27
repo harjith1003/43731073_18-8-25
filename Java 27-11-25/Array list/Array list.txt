@@ -1,0 +1,16 @@
+package basic;
+import java.util.*;
+public class arraylist {
+
+	public static void main(String[] args) {
+		ArrayList<String> s=new ArrayList<String>();
+		s.add("car1");
+		s.add("car2");
+		s.add("car3");
+		s.add("car4");
+		Iterator i=s.iterator();
+		while(i.hasNext()){
+			System.out.println(i.next());
+		}
+	}
+	}

@@ -1,0 +1,17 @@
+package basic;
+import java.util.*;
+public class linkedlist {
+
+	public static void main(String[] args) {
+		LinkedList<String> l=new LinkedList<String>();
+		l.add("car1");
+		l.add("car2");
+		l.add("car3");
+		l.add("car4");
+		Iterator<String> itr=l.iterator();
+		while(itr.hasNext()){
+			System.out.println(itr.next());
+		}
+	}
+
+}
