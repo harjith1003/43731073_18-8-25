@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toc</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .table{
+            margin-top: 200px;
+        }
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        table{
+            width: 500px;
+            height: 500px;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            
+        }
+        td:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="table">
+        <table>
+            <tr>
+                <td onclick="play(this, 0)" class="cell"></td>
+                <td onclick="play(this, 1)" class="cell"></td>
+                <td onclick="play(this, 2)" class="cell"></td>
+            </tr>
+            <tr>
+                <td onclick="play(this, 3)" class="cell"></td>
+                <td onclick="play(this, 4)" class="cell"></td>
+                <td onclick="play(this, 5)" class="cell"></td>
+            </tr>
+            <tr>
+                <td onclick="play(this, 6)" class="cell"></td>
+                <td onclick="play(this, 7)" class="cell"></td>
+                <td onclick="play(this, 8)" class="cell"></td>
+            </tr>
+        </table>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <script>
+        let player = 'X'
+        const cells = document.getElementsByClassName('cell')
+
+        function play(obj, i){
+            console.log('Cell clicked', i)
+            if(obj.innerHTML === ''){
+                obj.innerHTML = player
+                if(check(player, i)){
+                    console.log(`${player} wins`)
+                    reset()
+                    return
+                }
+                if(filled()){
+                    console.log(`xo Draw`)
+                    reset()
+                }
+                player = (player === 'X') ? 'O' : 'X'
+            }
+        }
+
+        function check(player, i){
+            let cell_0 = cells[0].innerHTML
+            let cell_1 = cells[1].innerHTML
+            let cell_2 = cells[2].innerHTML
+            let cell_3 = cells[3].innerHTML
+            let cell_4 = cells[4].innerHTML
+            let cell_5 = cells[5].innerHTML
+            let cell_6 = cells[6].innerHTML
+            let cell_7 = cells[7].innerHTML
+            let cell_8 = cells[8].innerHTML
+
+            if((i === 0) && ((cell_1 == player && cell_2 == player) || (cell_3 == player && cell_6 == player) || (cell_4 == player && cell_8 == player))){
+                return true;
+            }
+
+            return false
+        }
+
+        function filled(){
+            for(let i = 0; i <= 8; i++){
+                if(cells[i].innerHTML === ''){
+                    return false
+                }
+            }
+            return true
+        }
+
+        function reset(){
+            for(let i = 0; i <= 8; i++){
+                cells[i].innerHTML = ''
+            }
+        }
+    </script>
+</body>
+</html>
