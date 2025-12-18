@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment</title>
+
+    <style>
+        body {
+            background:#020617;
+            color:#e5e7eb;
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .box {
+            background:#0f172a;
+            padding:30px;
+            border-radius:10px;
+            width:350px;
+        }
+
+        h2 {
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        label {
+            display:block;
+            margin:8px 0;
+        }
+
+        button {
+            width:100%;
+            margin-top:20px;
+            padding:10px;
+            background:#22c55e;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover {
+            background:#16a34a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Select Genres</h2>
+
+    <!-- ✅ IMPORTANT: POST method -->
+    <form action="/payment" method="post">
+
+        <label>
+            <input type="checkbox" name="genres" value="Action">
+            Action
+        </label>
+
+        <label>
+            <input type="checkbox" name="genres" value="Thriller">
+            Thriller
+        </label>
+
+        <label>
+            <input type="checkbox" name="genres" value="Drama">
+            Drama
+        </label>
+
+        <label>
+            <input type="checkbox" name="genres" value="Sci-Fi">
+            Sci-Fi
+        </label>
+
+        <label>
+            <input type="checkbox" name="genres" value="Horror">
+            Horror
+        </label>
+
+        <!-- optional price -->
+        <input type="hidden" name="amount" value="178">
+
+        <button type="submit">Pay ₹178</button>
+
+    </form>
+</div>
+
+</body>
+</html>

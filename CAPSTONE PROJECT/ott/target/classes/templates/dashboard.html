@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>OTT Dashboard</title>
+
+<style>
+body {
+    margin:0;
+    background:#020617;
+    color:#e5e7eb;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#020617;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo {
+    font-size:24px;
+    font-weight:bold;
+    color:#e50914;
+}
+
+.nav-links a {
+    margin:0 15px;
+    color:#e5e7eb;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.nav-links a:hover {
+    color:#38bdf8;
+}
+
+.actions a {
+    margin-left:15px;
+    padding:8px 14px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.subscribe {
+    background:#22c55e;
+    color:black;
+}
+
+.logout {
+    background:#e50914;
+    color:white;
+}
+
+.admin {
+    background:#7f1d1d;
+    color:white;
+}
+
+/* SECTION */
+.section {
+    padding:30px 40px;
+}
+
+.section h2 {
+    margin-bottom:15px;
+}
+
+/* ROW */
+.row {
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    padding-bottom:10px;
+}
+
+/* CARD */
+.card {
+    min-width:220px;
+    background:#0f172a;
+    border-radius:10px;
+    overflow:hidden;
+    position:relative;
+}
+
+.card img {
+    width:100%;
+    height:130px;
+    object-fit:cover;
+}
+
+.card-content {
+    padding:12px;
+}
+
+.card h4 {
+    margin:0;
+    font-size:15px;
+}
+
+.card p {
+    font-size:12px;
+    color:#94a3b8;
+}
+
+/* BADGES */
+.badge {
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#22c55e;
+    color:black;
+    padding:4px 8px;
+    font-size:11px;
+    border-radius:4px;
+}
+
+.locked {
+    background:#ef4444;
+    color:white;
+}
+
+/* BUTTON */
+.card button {
+    width:100%;
+    margin-top:10px;
+    padding:6px;
+    background:#38bdf8;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.card button:hover {
+    background:#0ea5e9;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">OTT</div>
+
+    <div class="nav-links">
+        <a href="/movies">Movies</a>
+        <a href="/series">Series</a>
+        <a href="/news">News</a>
+        <a href="/sports">Sports</a>
+    </div>
+
+    <div class="actions">
+        <a href="/admin/login" class="admin">Admin</a>
+        <a href="/subscribe" class="subscribe">Subscribe</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+</div>
+
+<!-- TRENDING MOVIES -->
+<div class="section">
+    <h2>Trending Movies</h2>
+
+    <div class="row">
+
+        <!-- MOVIE CARD -->
+        <div class="card">
+
+            <!-- 🔒 LOCKED BADGE -->
+            <span th:if="${!subscribed}" class="badge locked">Locked</span>
+
+            <img src="https://c7.alamy.com/comp/2JP63AR/movie-poster-triangle-2009-2JP63AR.jpg">
+
+            <div class="card-content">
+                <h4>Triangle (2009)</h4>
+                <p>Thriller / Sci-Fi</p>
+
+                <!-- 🎬 WATCH -->
+                <button th:if="${subscribed}">Watch Now</button>
+
+                <!-- 💳 SUBSCRIBE -->
+                <a th:if="${!subscribed}" href="/subscribe">
+                    <button>Subscribe</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- MOVIE CARD -->
+        <div class="card">
+            <span th:if="${!subscribed}" class="badge locked">Locked</span>
+
+            <img src="https://c7.alamy.com/comp/PMBKX2/gone-girl-2014-poster-PMBKX2.jpg">
+
+            <div class="card-content">
+                <h4>Gone Girl</h4>
+                <p>Mystery / Drama</p>
+
+                <button th:if="${subscribed}">Watch Now</button>
+
+                <a th:if="${!subscribed}" href="/subscribe">
+                    <button>Subscribe</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SERIES -->
+<div class="section">
+    <h2>Popular Series</h2>
+
+    <div class="row">
+
+        <div class="card">
+            <span th:if="${!subscribed}" class="badge locked">Locked</span>
+
+            <img src="https://w0.peakpx.com/wallpaper/730/91/HD-wallpaper-dark-netflix-serie.jpg">
+
+            <div class="card-content">
+                <h4>Dark</h4>
+                <p>Sci-Fi / Mystery</p>
+
+                <button th:if="${subscribed}">Watch Now</button>
+
+                <a th:if="${!subscribed}" href="/subscribe">
+                    <button>Subscribe</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
