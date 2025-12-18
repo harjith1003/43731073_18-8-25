@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #020617;
+        color: #e5e7eb;
+    }
+
+    header {
+        padding: 20px 40px;
+        background: #020617;
+        border-bottom: 1px solid #1e293b;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        color: #facc15;
+    }
+
+    header a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .container {
+        padding: 40px;
+    }
+
+    .section {
+        margin-bottom: 50px;
+    }
+
+    .section h2 {
+        margin-bottom: 20px;
+        border-left: 4px solid #facc15;
+        padding-left: 10px;
+    }
+
+    /* Cards */
+    .grid {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: #0f172a;
+        padding: 20px;
+        border-radius: 10px;
+        width: 250px;
+    }
+
+    .card h3 {
+        margin-top: 0;
+    }
+
+    button {
+        padding: 8px 12px;
+        background: #22c55e;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button.danger {
+        background: #ef4444;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.85;
+    }
+
+    /* Fake chart */
+    .chart {
+        display: flex;
+        gap: 15px;
+        align-items: flex-end;
+        height: 200px;
+        margin-top: 20px;
+    }
+
+    .bar {
+        width: 40px;
+        background: #38bdf8;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 6px 6px 0 0;
+    }
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <a href="/dashboard">← User View</a>
+</header>
+
+<div class="container">
+
+    <!-- MOVIE MANAGEMENT -->
+    <div class="section">
+        <h2>Movie Management</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Add Movie</h3>
+                <p>Upload new content</p>
+                <button>Add Movie</button>
+            </div>
+
+            <div class="card">
+                <h3>Remove Movie</h3>
+                <p>Delete existing content</p>
+                <button class="danger">Remove</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- USERS & SUBSCRIPTIONS -->
+    <div class="section">
+        <h2>Users & Subscriptions</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>1,284</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Subscriptions</h3>
+                <p>742</p>
+            </div>
+
+            <div class="card">
+                <h3>Revenue (Monthly)</h3>
+                <p>$8,430</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WATCH TIME STATS -->
+    <div class="section">
+        <h2>Watch Time (Hours)</h2>
+
+        <div class="chart">
+            <div class="bar" style="height: 60%;">Mon</div>
+            <div class="bar" style="height: 80%;">Tue</div>
+            <div class="bar" style="height: 40%;">Wed</div>
+            <div class="bar" style="height: 90%;">Thu</div>
+            <div class="bar" style="height: 70%;">Fri</div>
+            <div class="bar" style="height: 50%;">Sat</div>
+            <div class="bar" style="height: 85%;">Sun</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
